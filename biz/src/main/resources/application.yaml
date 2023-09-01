@@ -1,0 +1,46 @@
+server:
+  port: 8081
+
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    initialPoolSize: 2
+    minPoolSize: 2
+    maxPoolSize: 4
+          # system
+    druid00jdbcUrl: jdbc:mysql://localhost:3306/shard_system?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&autoReconnect=true&failOverReadOnly=false&socketTimeout=20000&serverTimezone=UTC
+    druid00username: root
+    druid00password: 123
+          # student
+    druid01jdbcUrl: jdbc:mysql://localhost:3306/shard_student?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&autoReconnect=true&failOverReadOnly=false&socketTimeout=20000&serverTimezone=UTC
+    druid01username: root
+    druid01password: 123
+#          finance:
+    druid02jdbcUrl: jdbc:mysql://localhost:3306/shard_finance?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&autoReconnect=true&failOverReadOnly=false&socketTimeout=20000&serverTimezone=UTC
+    druid02username: root
+    druid02password: 123
+#          biz:
+    druid03jdbcUrl: jdbc:mysql://localhost:3306/shard_biz?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&autoReconnect=true&failOverReadOnly=false&socketTimeout=20000&serverTimezone=UTC
+    druid03username: root
+    druid03password: 123
+
+#spring:
+#  datasource:
+#    dynamic:
+#      primary: master #设置默认的数据源或者数据源组,默认值即为master
+#      strict: false #严格匹配数据源,默认false. true未匹配到指定数据源时抛异常,false使用默认数据源
+#      datasource:
+#        master:
+#          url: jdbc:mysql://localhost:3306/shard_system?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&autoReconnect=true&failOverReadOnly=false&socketTimeout=20000&serverTimezone=UTC
+#          username: root
+#          password: 123
+#          driver-class-name: com.mysql.jdbc.Driver # 3.2.0开始支持SPI可省略此配置
+#        slave:
+#          url: jdbc:mysql://localhost:3306/shard_student?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&autoReconnect=true&failOverReadOnly=false&socketTimeout=20000&serverTimezone=UTC
+#          username: root
+#          password: 123
+#          driver-class-name: com.mysql.jdbc.Driver
+
